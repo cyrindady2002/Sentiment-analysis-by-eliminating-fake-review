@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Comment Box</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="comment_style.css" />
+  </head>
+  <style>
+    /* Add your CSS styling here */
+    .button_v {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      text-align: center;
+      text-decoration: none;
+      background-color: #8b272e;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .button_v:hover {
+      background-color: #b12b32;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="comment-box gradient-bg">
+        <h2 class="comment-title">Comment here</h2>
+        <form action="/submit-comment" method="post"> <!-- Updated form action -->
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email">
+          </div>
+          <div class="form-group">
+            <label for="p_name">Product name:</label>
+            <select id="p_name" name="p_name" style= "width: 535px; height: 35px;" > <!-- Adjust the size attribute as needed -->
+              <option value="iphone8" style="color: #333131;">IPHONE 8</option>
+              <option value="iphone10" style="color: #333131;">IPHONE 10</option>
+              <option value="iphone11" style="color: #333131;">IPHONE 11</option>
+              <option value="iphone12" style="color: #333131;">IPHONE 12</option>
+              <option value="iphone13" style="color: #333131;">IPHONE 13</option>
+              <option value="iphone14" style="color: #333131;">IPHONE 14</option>
+              <option value="pink_watch" style="color: #333131;">PINK WATCH</option>
+              <option value="heavy_watch" style="color: #333131;">HEAVY WATCH</option>
+              <option value="spotted_watch" style="color: #333131;">SPOTTED WATCH</option>
+              <option value="black_watch" style="color: #333131;">BLACK WATCH</option>
+              <option value="select" style="color: #333131;">...select...</option>
+            </select>
+        </div>
+        
+          <div class="form-group">
+            <label for="comment">Comment:</label>
+            <textarea id="comment" name="comment" placeholder="Type your comment here"></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Submit</button>
+          <a href="views\display_comment.html" class="button_v">view comments</a>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
