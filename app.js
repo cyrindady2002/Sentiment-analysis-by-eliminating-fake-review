@@ -13,8 +13,9 @@ mongoose.connect('mongodb://localhost:27017/E-commerce', { useNewUrlParser: true
 const commentSchema = new mongoose.Schema({
   name: String,
   email: String,
-  p_name: String,
-  comment: String,
+  category: String,
+  text_: String,
+  rating: Number // Add rating field to the schema
 });
 
 // Create a model based on the schema
@@ -32,14 +33,15 @@ app.get('/comments', (req, res) => {
 
 // Handle form submission
 app.post('/submit-comment', async (req, res) => {
-  const { name, email, p_name, comment } = req.body;
+  const { name, email, category, text_, rating } = req.body; // Extract rating from request body
 
   // Create a new comment object
   const newComment = new Comment({
     name,
     email,
-    p_name,
-    comment,
+    category,
+    text_,
+    rating,// Include rating in the new comment
   });
 
   // Save the comment to MongoDB

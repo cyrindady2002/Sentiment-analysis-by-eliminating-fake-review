@@ -114,12 +114,12 @@ section{
       // Group comments by product name
       const groupedComments = {};
 
-      comments.forEach(comment => {
-        if (!groupedComments[comment.p_name]) {
-          groupedComments[comment.p_name] = [];
+      comments.forEach(text_ => {
+        if (!groupedComments[text_.category]) {
+          groupedComments[text_.category] = [];
         }
 
-        groupedComments[comment.p_name].push(comment);
+        groupedComments[text_.category].push(text_);
       });
 
       // Display comments in the container
@@ -134,13 +134,13 @@ section{
         const commentsTable = document.createElement('table');
         const tbody = document.createElement('tbody');
 
-        comments.forEach(comment => {
+        comments.forEach(text_ => {
           const row = document.createElement('tr');
           const nameCell = document.createElement('td');
           const commentCell = document.createElement('td');
 
-          nameCell.textContent = comment.name;
-          commentCell.textContent = comment.comment;
+          nameCell.textContent = text_.name;
+          commentCell.textContent = text_.text_;
 
           row.appendChild(nameCell);
           row.appendChild(commentCell);

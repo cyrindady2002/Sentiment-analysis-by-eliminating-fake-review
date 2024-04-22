@@ -38,30 +38,57 @@
             <input type="email" id="email" name="email" placeholder="Enter your email">
           </div>
           <div class="form-group">
-            <label for="p_name">Product name:</label>
-            <select id="p_name" name="p_name" style= "width: 535px; height: 35px;" > <!-- Adjust the size attribute as needed -->
-              <option value="iphone8" style="color: #333131;">IPHONE 8</option>
-              <option value="iphone10" style="color: #333131;">IPHONE 10</option>
-              <option value="iphone11" style="color: #333131;">IPHONE 11</option>
-              <option value="iphone12" style="color: #333131;">IPHONE 12</option>
-              <option value="iphone13" style="color: #333131;">IPHONE 13</option>
-              <option value="iphone14" style="color: #333131;">IPHONE 14</option>
-              <option value="pink_watch" style="color: #333131;">PINK WATCH</option>
-              <option value="heavy_watch" style="color: #333131;">HEAVY WATCH</option>
-              <option value="spotted_watch" style="color: #333131;">SPOTTED WATCH</option>
-              <option value="black_watch" style="color: #333131;">BLACK WATCH</option>
+            <label for="category">Product name:</label>
+            <select id="category" name="category" style= "width: 535px; height: 35px;" > <!-- Adjust the size attribute as needed -->
+              <option value="plates" style="color: #333131;">PLATES</option>
+              <option value="bowls" style="color: #333131;">BOWLS</option>
+              <option value="spoons" style="color: #333131;">SPOONS</option>
+              <option value="spatula" style="color: #333131;">SPATULA</option>
+              <option value="blender" style="color: #333131;">BLENDR</option>
+              <option value="beater" style="color: #333131;">BEATER</option>
+              <option value="non stick pan" style="color: #333131;">NON-STICK PAN</option>
+              <option value="dinner set" style="color: #333131;">DINNER SET</option>
+              <option value="bottles" style="color: #333131;">BOTTLES</option>
+              <option value="vessels" style="color: #333131;">VESSELS</option>
               <option value="select" style="color: #333131;">...select...</option>
             </select>
         </div>
-        
           <div class="form-group">
-            <label for="comment">Comment:</label>
-            <textarea id="comment" name="comment" placeholder="Type your comment here"></textarea>
+            <label for="text_">Comment:</label>
+            <textarea id="text_" name="text_" placeholder="Type your comment here"></textarea>
+            <div class="rating">
+              <input type="hidden" id="rating" name="rating" value="">
+              <span class="star" data-value="1">&#9733;</span>
+              <span class="star" data-value="2">&#9733;</span>
+              <span class="star" data-value="3">&#9733;</span>
+              <span class="star" data-value="4">&#9733;</span>
+              <span class="star" data-value="5">&#9733;</span>
           </div>
+      </div>
+          
+          
           <button type="submit" class="btn-submit">Submit</button>
           <a href="views\display_comment.html" class="button_v">view comments</a>
+          
         </form>
       </div>
+      </div>
     </div>
+   
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+       $(document).ready(function() {
+    $('.star').click(function() {
+        var ratingValue = $(this).attr('data-value');
+        $('#rating').val(ratingValue);
+        $(this).addClass('active');
+        $(this).prevAll().addClass('active');
+        $(this).nextAll().removeClass('active');
+    });
+});
+
+    </script>
   </body>
 </html>
+
+

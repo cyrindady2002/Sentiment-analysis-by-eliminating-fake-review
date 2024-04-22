@@ -1,12 +1,9 @@
-
 import streamlit as st
-
 import pandas as pd
 from textblob import TextBlob
 import plotly.express as px
+from pymongo import MongoClient
 
-
- 
 def get_sentiment(sentiment_score):
     if sentiment_score > 0.2:
         return 'Positive'
@@ -24,10 +21,19 @@ def detect_fake_review(sentiment_label):
 def main():
     st.title('Reviews Sentiment Analysis Dashboard')
 
-    df = pd.read_csv("E-commerce.comments.csv")
+    # Connect to MongoDB
+    client = MongoClient('mongodb://localhost:27017')
+    db = client['E-commerce']  # Replace 'your_database_name' with your actual database name
+    collection = db['comments']  # Replace 'your_collection_name' with your actual collection name
+
+    # Retrieve data from MongoDB collection
+    cursor = collection.find({})
+
+    # Convert MongoDB cursor to DataFrame
+    df = pd.DataFrame(list(cursor))
 
     # Rename columns for consistency
-    df.rename(columns={'_id': 'ID', 'name': 'Name', 'email': 'Email', 'p_name': 'Product Name', 'comment': 'Body', '__v': 'V'}, inplace=True)
+    df.rename(columns={'_id': 'ID', 'name': 'Name', 'email': 'Email', '__v': 'V', 'category': 'Product Name', 'text_': 'Body', 'rating':'Rating'}, inplace=True)
 
     # Perform sentiment analysis
     df['Sentiment'] = df['Body'].apply(lambda x: get_sentiment(TextBlob(str(x)).sentiment.polarity))

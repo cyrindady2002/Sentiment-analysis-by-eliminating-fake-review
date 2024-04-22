@@ -1,6 +1,6 @@
 body{
     background-color: #dfecf7;
-    background-image: url("https://cdn.thewirecutter.com/wp-content/media/2022/03/primedayapple-2048px-2686-2x1-1.jpg?auto=webp&quality=75&crop=2:1&width=1024");
+    background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fin.pinterest.com%2Fstyledelight%2Fkitchen-utility%2F&psig=AOvVaw1RyCb_hgUEWgz4uzObaszd&ust=1713839738993000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCMD8x9vk1IUDFQAAAAAdAAAAABAE");
   }
   
   .container{
@@ -53,6 +53,17 @@ body{
     background-color: #fff;
   }
   
+  .star {
+    font-size: 40px;
+    cursor: pointer;
+    color: gray;
+}
+
+.star:hover,
+.star.active {
+    color: gold;
+}
+
   .btn-submit {
     background-color: #005aaa;
     color: #fff;
